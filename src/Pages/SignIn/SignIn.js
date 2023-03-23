@@ -23,6 +23,9 @@ const SignIn = (props) => {
     setName(user);
     props.onClose(user);
 
+    dispatch(authActions.login({
+      user: name
+    }))
    
   };
 

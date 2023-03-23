@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import logo from "../../assets/swiggy.png";
 import { Link } from "react-router-dom";
@@ -33,6 +33,12 @@ const Header = (props) => {
     setClick(true);
   };
 
+ 
+
+  useEffect(()=>{
+    const loggedUser = localStorage.getItem("isloggedIn");
+  }, [beforeLogin])
+
   return (
     <div className="header-container"><header className="main-header">
     <img className="logo" src={logo} alt="swiggy logo" />
@@ -58,7 +64,7 @@ const Header = (props) => {
       {!beforeLogin && <li>
         <a onClick={handleClick}>Sign In</a>
       </li>}
-      {beforeLogin && <li>{name}</li>}
+      {beforeLogin && <li>{localStorage.getItem("isloggedIn")}</li>}
       <li>
         <div style={{ display: "flex" }}>
          

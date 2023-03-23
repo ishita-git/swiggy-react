@@ -20,12 +20,35 @@
 .header-info{
     display: flex;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+   
+    
+}
+.header-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: row;
+    margin-left: 800px;
+    align-items: center;
+}
+.user-info button{
+    margin-left: 10px;
+    height: 30px;
+    align-items: center;
 }
 
 .header-info h3{
     align-items: center;
-    margin: 0;
+    
+   
 }
+
 
 .checkout-details-card{
     display: flex;

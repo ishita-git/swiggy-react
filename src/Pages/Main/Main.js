@@ -7,7 +7,7 @@ import SignIn from "../SignIn/SignIn";
 const Main = () => {
     return(
          <>
-    <Header/>
+ 
     <br/>
     <Carousel/>
     <Home/>

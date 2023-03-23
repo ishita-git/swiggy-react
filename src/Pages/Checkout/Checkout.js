@@ -4,6 +4,7 @@ import logo from "../../assets/swiggy.png";
 import AfterButton from "../../components/Button/AfterButton";
 import { useSelector } from "react-redux";
 import SignIn from "../SignIn/SignIn";
+import Main from "../Main/Main";
 
 
 const Checkout = (props) => {
@@ -28,27 +29,41 @@ const Checkout = (props) => {
     if (checkLoggedIn) {
       alert(`Payment done, ${localStorage.getItem("isloggedIn")} !`);
       localStorage.clear();
+     window.open("/", "_self")
+     
     } else {
-      alert("Login First!");
+      alert("Login First!")
     }
   };
 
   const cartQuantity = useSelector((state) => state.cart.quantity);
   const cartItem = useSelector((state) => state.cart.items);
   const totalprice = useSelector((state) => state.cart.amount);
+  const user = useSelector((state)=> state.auth.user)
  
 
   console.log(cartItem);
+
+  const logoutHandler = () =>{
+    localStorage.clear();
+  }
  
   return (
     <div className="checkout-page">
-      <div className="header">
+      {/* <div className="header">
         <div className="header-info">
-          <img style={{ width: "80px", height: "80px" }} src={logo} />
+          <div className="header-heading">
+            <img style={{ width: "80px", height: "80px" }} src={logo} />
           <h3>SECURE CHECKOUT</h3>
-          <h4 style={{marginLeft:'50%'}}> {localStorage.getItem("isloggedIn")}</h4>
+          </div>
+          
+          <div className="user-info">
+          <h4 > {localStorage.getItem("isloggedIn")}</h4>
+          <button onClick={logoutHandler} >Logout</button>
+          </div>
+         
         </div>
-      </div>
+      </div> */}
 
       <div className="checkout-info">
         <div className="checkout-details-card">

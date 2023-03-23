@@ -55,9 +55,11 @@ function App() {
   return (
     
    <Router>
+    <Header/>
+       
        <Routes>
         <Route exact path="/" element={<Main/>}/>
-        <Route exact path="header" element={<Header/>}/>
+      
         <Route exact path="image/:id" element={<Restaurant cartItems={cart} addToCart={addToCart} addMenu={addMenu}/>}/>
         <Route exact path="carousel" element={<Carousel/>}/>
         <Route exact path="home" element={<Home />}/>

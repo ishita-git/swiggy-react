@@ -1,7 +1,10 @@
 import React from "react";
 import "./Login.css";
+import { useForm } from "react-hook-form";
 
 const Login = (props) => {
+ 
+
   return (
     <div className="loginBar">
       <div className="login-container">
@@ -47,6 +50,7 @@ const Login = (props) => {
               type="tel"
               maxLength="10"
               pattern="[1-9]{1}[0-9]{9}"
+            
               required
             />
             <br />

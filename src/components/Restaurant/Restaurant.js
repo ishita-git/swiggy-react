@@ -34,7 +34,7 @@ const Restaurant = (props) => {
 
   return (
     <div>
-      <Header counter={counter}/>
+      {/* <Header counter={counter}/> */}
       <div className="rest-info">
         <>
           <div className="title-div">
