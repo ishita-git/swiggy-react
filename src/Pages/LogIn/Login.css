@@ -1,0 +1,85 @@
+.loginBar {
+  width: 450px;
+  top: 0;
+  height: 100%;
+  background-color: white;
+
+  right: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.login-label{
+   
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: 500;
+    color: black;
+}
+
+ .login-form input{
+    border: solid rgba(113, 103, 103, 0.213);
+    text-align: center;
+    height: 70px;
+    width:60%;
+    font-size: 17px;
+    left:25%;
+    position:relative
+}
+.login-form{
+    display: block;
+    align-items: center;
+    left: 0%;
+
+    top:10%;
+    
+}
+input:focus{
+    outline: none;
+}
+.login-inputs{
+    top:10%;
+    position: relative;
+    right:20%;
+}
+ .login-form button{
+    border: none;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    padding: 15px 32px;
+    margin: 4px 2px;
+    background-color: #fc8019;
+    width: 60%;
+    position: relative;
+    left:25%;
+    
+}
+a{
+    text-decoration: none;
+}
+
+.login-container a{
+    cursor:pointer
+}
+
+.login-image{
+    width: "100px";
+            height: "100px";
+            float: "right";
+            position: "relative";
+            left: "1%";
+            top: "10%";
+}
+
+.login-container login-info{
+    position: "relative";
+            top: "25%";
+            left: "5%";
+            margin-bottom: "50px";
+}

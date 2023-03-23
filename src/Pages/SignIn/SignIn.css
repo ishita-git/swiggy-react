@@ -1,0 +1,88 @@
+@keyframes example {
+    from {width: 0;}
+    to {width: 450px;}
+}
+.overlay {
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #282c3f;
+    opacity: .7;
+    overflow: hidden;
+}
+.signinBar{
+    background-color: #ffffff;
+
+
+    animation-name: example;
+    animation-duration: 0.5s ;
+  
+    width:450px;
+    top:0;
+    height: 100%;
+   
+   
+    right: -600px;
+    position: fixed;
+    display: flex; 
+    flex-direction: column;
+    z-index: 30;
+    
+}
+.label{
+   
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: 500;
+    color: black;
+}
+
+ form input{
+    border: solid rgba(113, 103, 103, 0.213);
+    text-align: center;
+    height: 70px;
+    width:60%;
+    font-size: 17px;
+    left:25%
+}
+form{
+    display: block;
+    align-items: center;
+    left: 0%;
+
+    top:10%;
+    
+}
+input:focus{
+    outline: none;
+}
+.signin-inputs{
+    top:10%;
+    left:20%;
+    position: relative; 
+     right:20%;
+}
+ form button{
+    border: none;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    padding: 15px 32px;
+    margin: 4px 2px;
+    background-color: #fc8019;
+    width: 60%;
+    position: relative;
+   
+    
+}
+a{
+    text-decoration: none;
+}
+
+

@@ -1,0 +1,28 @@
+.search-bar{
+    display: flex;
+    
+   
+
+}
+.search-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+
+}
+
+.images-grid{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.images-grid a img{
+    width: 90px
+}
+
+

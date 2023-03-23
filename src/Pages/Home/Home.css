@@ -1,0 +1,62 @@
+.home-container h3 {
+  color: rgb(40, 44, 63);
+  font-size: 28px;
+  padding-left: 5%;
+}
+.home-container {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.home-header h3{
+  position: absolute;
+}
+.home-header ul {
+  float: right;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+
+  margin-right: 50px;
+  color: rgb(104, 107, 120);
+  font-size: 16px;
+  font-weight: 500;
+}
+.home-header li {
+  padding: 20px;
+}
+.home-header li:hover {
+  border-bottom: 1px solid black;
+}
+
+.home-header li a div {
+  color: rgb(61, 65, 82);
+  font-size: 16px;
+  text-decoration: none;
+}
+.home-header li a span:hover {
+  color: orange;
+}
+
+.content {
+  height: 1000px;
+}
+.home-content {
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: fit-content;
+  flex-direction: row;
+  max-width: 100%;
+  overflow-wrap: inherit;
+  justify-content: space-between;
+}
+.loader {
+  display: flex;
+  flex-direction: row;
+  margin: 40px;
+}
+
+

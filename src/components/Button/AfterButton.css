@@ -1,0 +1,11 @@
+.after-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.after-button button{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
