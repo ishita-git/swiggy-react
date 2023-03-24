@@ -1,12 +1,14 @@
+import map from 'lodash/map'
 import React, { useState, useEffect } from "react";
+
 import Card from "../../components/Card/Card";
-import "./Home.css";
-
-import { RESTAURANTS_IMAGE, SWIGGY_API } from "../../constants/swiggy.general";
-import RestaurantsLoader from "../../components/Loader/RestaurantsLoader";
 import HomeHeader from "./components/HomeHeader";
+import RestaurantsLoader from "../../components/Loader/RestaurantsLoader";
 
-const Home = (props) => {
+import "./Home.css";
+import { RESTAURANTS_IMAGE, SWIGGY_API } from "../../constants/swiggy.general";
+
+const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [restaurantList, setRestaurentList] = useState([]);
 
@@ -49,7 +51,7 @@ const Home = (props) => {
 
       {isLoading && (
         <div className="home-content">
-          {restaurantList.map((restaurant) => {
+          {map(restaurantList,(restaurant) => {
             return (
               <Card
                 image={`${RESTAURANTS_IMAGE}/${restaurant.data.data.cloudinaryImageId}`}

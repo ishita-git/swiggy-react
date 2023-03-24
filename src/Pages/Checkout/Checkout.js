@@ -1,17 +1,19 @@
-import React, { useState } from "react";
-import "./Checkout.css";
-import logo from "../../assets/swiggy.png";
-import AfterButton from "../../components/Button/AfterButton";
 import { useSelector } from "react-redux";
-import SignIn from "../SignIn/SignIn";
-import Main from "../Main/Main";
+import map from "lodash/map";
+import React, { useState } from "react";
 
+import AfterButton from "../../components/Button/AfterButton";
+import SignIn from "../SignIn/SignIn";
+
+import "./Checkout.css";
 
 const Checkout = (props) => {
   const [check, setCheck] = useState(false);
   const [rightPixel, setRightPixel] = useState(-600);
+  const checkLoggedIn = localStorage.getItem("isloggedIn");
 
- 
+  const cartItem = useSelector((state) => state.cart.items);
+  const totalprice = useSelector((state) => state.cart.amount);
 
   const handleClick = () => {
     setCheck(true);
@@ -22,49 +24,18 @@ const Checkout = (props) => {
     setRightPixel(-600);
   };
 
-  const checkLoggedIn = localStorage.getItem("isloggedIn");
-  console.log(checkLoggedIn)
-
   const paymentHandler = () => {
     if (checkLoggedIn) {
       alert(`Payment done, ${localStorage.getItem("isloggedIn")} !`);
       localStorage.clear();
-     window.open("/", "_self")
-     
+      window.open("/", "_self");
     } else {
-      alert("Login First!")
+      alert("Login First!");
     }
   };
 
-  const cartQuantity = useSelector((state) => state.cart.quantity);
-  const cartItem = useSelector((state) => state.cart.items);
-  const totalprice = useSelector((state) => state.cart.amount);
-  const user = useSelector((state)=> state.auth.user)
- 
-
-  console.log(cartItem);
-
-  const logoutHandler = () =>{
-    localStorage.clear();
-  }
- 
   return (
     <div className="checkout-page">
-      {/* <div className="header">
-        <div className="header-info">
-          <div className="header-heading">
-            <img style={{ width: "80px", height: "80px" }} src={logo} />
-          <h3>SECURE CHECKOUT</h3>
-          </div>
-          
-          <div className="user-info">
-          <h4 > {localStorage.getItem("isloggedIn")}</h4>
-          <button onClick={logoutHandler} >Logout</button>
-          </div>
-         
-        </div>
-      </div> */}
-
       <div className="checkout-info">
         <div className="checkout-details-card">
           <div className="title">
@@ -73,7 +44,7 @@ const Checkout = (props) => {
           </div>
           <div className="checkout-items">
             <div className="items-div">
-              {cartItem.map((item) => {
+              {map(cartItem, (item) => {
                 return (
                   <div className="item-indi">
                     <div style={{ marginRight: "40px" }}>{item.name}</div>

@@ -11,8 +11,11 @@ const Card = (props) => {
   };
   const { id } = props;
 
-
-  const formatArea = val => <span>{val} {'\u2605'}</span>
+  const formatArea = (val) => (
+    <span>
+      {val} {"\u2605"}
+    </span>
+  );
 
   return (
     <div className="card" onClick={handleClick}>
@@ -20,7 +23,10 @@ const Card = (props) => {
       <h3>{props.title}</h3>
       <h5>{props.sub}</h5>
       <div className="details">
-        <div className="details-rating"> {formatArea()} {props.rating}</div>
+        <div className="details-rating">
+          {" "}
+          {formatArea()} {props.rating}
+        </div>
 
         <div>•</div>
 
@@ -30,7 +36,6 @@ const Card = (props) => {
 
         <div>{props.price}</div>
       </div>
-      {/* <h5>{props.rating}  .  {props.time}  .  {props.price}</h5> */}
       <hr />
       <h5>Free Delivery</h5>
     </div>

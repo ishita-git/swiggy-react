@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
+
 import Header from "../../components/Header/Header";
 import "./Search.css";
-import TextField from "@mui/material/TextField";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -12,7 +13,7 @@ const Search = () => {
     { name: "Idli" , restaurant: " Sagar"}
   ];
 
-  const handleChange = (e) => {
+  const handleChange = (e) => { //callback
     e.preventDefault();
     setSearchInput(e.target.value);
 

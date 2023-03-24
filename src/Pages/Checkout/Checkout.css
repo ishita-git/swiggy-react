@@ -17,14 +17,8 @@
     background-color: rgb(228 230 239 );
 }
 
-.header-info{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-   
-    
-}
+
+
 .header-heading{
     display: flex;
     flex-direction: row;

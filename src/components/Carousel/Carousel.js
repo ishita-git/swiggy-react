@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
+import { getMaxWidth } from "../../utils/swiggy";
+
 import "./Carousel.css";
 
 const Carousel = () => {
   const [leftScroll, setLeftScroll] = useState(false);
   const [rightScroll, setRightScroll] = useState(true);
   const [activeIndex, setActiveindex] = useState(0);
-  const [counter, setCounter] = useState(0);
 
-  const factor = 3;
-
-  const leftButton = () => {
-    let maxWidht =
-      document.getElementById("item-carousel").clientWidth * factor;
+  const leftButton = useCallback(() => {
+    //useCallback
+    const maxWidht = getMaxWidth();
 
     let newActiveIndex = Math.max(
       activeIndex - document.getElementById("item-carousel").clientWidth,
@@ -27,25 +26,26 @@ const Carousel = () => {
     }
 
     setActiveindex(newActiveIndex);
-  };
+  });
 
-  const rightButton = () => {
-    let maxWidht =
-      document.getElementById("item-carousel").clientWidth * factor;
+  const rightButton = useCallback(() => {
+    let maxWidht = getMaxWidth();
 
     let newActiveIndex = Math.min(
       activeIndex + document.getElementById("item-carousel").clientWidth,
-      maxWidht
-    );
+      maxWidht)
+      if (newActiveIndex === maxWidht) {
+        setRightScroll(false);
+      }
+  
+      if (newActiveIndex > 0) setLeftScroll(true);
+  
+      setActiveindex(newActiveIndex);
+    });
+    
 
-    if (newActiveIndex === maxWidht) {
-      setRightScroll(false);
-    }
-
-    if (newActiveIndex > 0) setLeftScroll(true);
-
-    setActiveindex(newActiveIndex);
-  };
+    
+  
 
   return (
     <div className="carousel">

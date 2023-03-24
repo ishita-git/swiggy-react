@@ -1,5 +1,6 @@
-import React from "react";
 import { Skeleton } from "react-content-placeholder";
+import React from "react";
+
 import Card from "../../components/Card/Card";
 
 const RestaurantsLoader = () =>{

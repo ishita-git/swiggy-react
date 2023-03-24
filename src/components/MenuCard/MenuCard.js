@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import map from "lodash/map";
+import React, { useCallback, useState } from "react";
+
 import FoodCard from "../FoodCard/FoodCard";
+
 import "./MenuCard.css";
 
-
-
 const MenuCard = (props) => {
-  const menuHeadings = props.onPass.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-  // console.log(menuHeadings?.length)
+  const menuHeadings =
+    props.onPass.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
-  // console.log(props.onPass)
   const [menuArray, setMenuArray] = useState(
     new Array(menuHeadings?.length).fill(false)
   );
 
-  const cardHandler = (name, index) => {
+  const cardHandler = useCallback((name, index) => {
     if (menuArray[index]) {
       setMenuArray(new Array(menuHeadings?.length).fill(false));
       return;
@@ -22,20 +22,15 @@ const MenuCard = (props) => {
     let arr = new Array(menuHeadings?.length).fill(false);
     arr[index] = true;
     setMenuArray(arr);
-  };
+  }, []);
 
   return (
-    
     <div className="menu-card">
-      {props.onPass.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((category, index) => {
+      {map(menuHeadings, (category, index) => {
         return (
           <div className="menu">
-             <button onClick={() => cardHandler(category.name, index)}>
-           
-        
-              <h3>
-                {category.card.card.title} 
-              </h3>
+            <button onClick={() => cardHandler(category.name, index)}>
+              <h3>{category.card.card.title}</h3>
             </button>
 
             {menuArray[index] && (
@@ -50,15 +45,11 @@ const MenuCard = (props) => {
                 key={index}
               />
             )}
-          
           </div>
         );
-      })} 
+      })}
     </div>
-    
-   
   );
 };
-
 
 export default MenuCard;
