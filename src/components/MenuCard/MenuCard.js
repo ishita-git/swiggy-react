@@ -4,10 +4,11 @@ import React, { useCallback, useState } from "react";
 import FoodCard from "../FoodCard/FoodCard";
 
 import "./MenuCard.css";
+import RestReader from "../../readers/swiggy.reader";
 
 const MenuCard = (props) => {
   const menuHeadings =
-    props.onPass.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    RestReader.menuHeadings(props);
 
   const [menuArray, setMenuArray] = useState(
     new Array(menuHeadings?.length).fill(false)
@@ -22,7 +23,7 @@ const MenuCard = (props) => {
     let arr = new Array(menuHeadings?.length).fill(false);
     arr[index] = true;
     setMenuArray(arr);
-  }, []);
+  }, [menuArray]);
 
   return (
     <div className="menu-card">

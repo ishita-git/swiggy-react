@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "./AfterButton.css";
 import { useSelector, useDispatch } from "react-redux";
 import { cartactions } from "../../store/cart-slice";
@@ -12,7 +12,7 @@ const AfterButton = (props) => {
     );
   };
 
-  const addToCartHandler = () => {
+  const addToCartHandler = useCallback(() => {
     dispatch(
       cartactions.addItemToCart({
         quantity: props.quantity,
@@ -22,7 +22,7 @@ const AfterButton = (props) => {
         totalprice: props.totalprice,
       })
     );
-  };
+  },[]);
 
   return (
     <div className="after-button">

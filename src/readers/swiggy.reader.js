@@ -15,9 +15,13 @@ const price = (items) => get(items,'card.info.price','price');
 const description = (items) => get(items,'card.info.description', 'description');
 const imageId = (items) => get(items,'card.info.imageId','No image')
 
+//menu Card
+const menuHeadings = (props) => get(props,'onPass.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards');
+
 export default {
     costForTwoMessage, name , cuisine1 , cuisine2, areaName , avgRating , totalRatingsString,
-    foodName, price,description, imageId
+    foodName, price,description, imageId,
+    menuHeadings
 }
 
 /*

@@ -19,14 +19,17 @@ const Header = (props) => {
   const handleClick = useCallback(() => {
     setCheck(true);
     setRightPixel(0);
-  }, []);
+  }, [rightPixel]);
 
-  const closeHandle = useCallback((name) => {
-    setCheck(false);
-    setRightPixel(-600);
-    setName(name);
-    setBeforeLogin(true);
-  }, []);
+  const closeHandle = useCallback(
+    (name) => {
+      setCheck(false);
+      setRightPixel(-600);
+      setName(name);
+      setBeforeLogin(true);
+    },
+    [rightPixel, name, beforeLogin, check]
+  );
 
   const searchHandle = () => {
     setClick(true);

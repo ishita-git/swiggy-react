@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import map from "lodash/map";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import AfterButton from "../../components/Button/AfterButton";
 import SignIn from "../SignIn/SignIn";
@@ -15,16 +15,17 @@ const Checkout = (props) => {
   const cartItem = useSelector((state) => state.cart.items);
   const totalprice = useSelector((state) => state.cart.amount);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setCheck(true);
     setRightPixel(0);
-  };
-  const closeHandle = () => {
+  }, [check, rightPixel]);
+
+  const closeHandle = useCallback(() => {
     setCheck(false);
     setRightPixel(-600);
-  };
+  },[check,rightPixel]);
 
-  const paymentHandler = () => {
+  const paymentHandler = useCallback(() => {
     if (checkLoggedIn) {
       alert(`Payment done, ${localStorage.getItem("isloggedIn")} !`);
       localStorage.clear();
@@ -32,7 +33,7 @@ const Checkout = (props) => {
     } else {
       alert("Login First!");
     }
-  };
+  }, [checkLoggedIn]);
 
   return (
     <div className="checkout-page">
